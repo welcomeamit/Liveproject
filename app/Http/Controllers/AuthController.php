@@ -10,29 +10,31 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        // Validate the request input
-        $request->validate([
-            "username" => "required|string|max:255",
-            "email" => "required|email|unique:users,email",
-            "password" => "required|string|min:8|confirmed"
-        ]);
+        // // Validate the request input
+        
 
-        // Create the user
-        User::create([
-            "name" => $request->username,
-            "email" => $request->email,
-            "password" => bcrypt($request->password)
-        ]);
+        // // Create the user
+        
 
         // Attempt to authenticate the user
-        if (Auth::attempt([
-            "email" => $request->email,
-            "password" => $request->password
-        ])) {
-            return redirect()->route('dashboard');
-        } else {
-            return redirect()->route('register');
+        if ($request->has('register')) {
+            dd($request->all());
+            $request->validate([
+                "username" => "required|string|max:255",
+                "email" => "required|email|unique:users.email",
+                "password" => "required|string|min:8|confirmed"
+            ]);
+            $is_insert = User::create([
+                "name" => $request->username,
+                "email" => $request->email,
+                "password" => bcrypt($request->password)
+            ]);
+            if($is_insert){
+                
+            }
         }
+         ;
+        return  view("auth.register");
     }
 
     public function login(Request $request)
