@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::match(['get','post'],'register',[AuthController::class,'register'])->name('register'); 
 Route::match(['get','post'],'login',[AuthController::class,'login'])->name('login'); 
 Route::match(['get','post'],'dashboard',[AuthController::class,'dashboard'])->name('dashboard'); 
+Route::match(['get','post'],'logout',[AuthController::class,'logout'])->name('logout'); 

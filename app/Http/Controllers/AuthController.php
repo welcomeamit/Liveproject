@@ -30,12 +30,11 @@ class AuthController extends Controller
                 "email" => $request->email,
                 "password" => bcrypt($request->password)
             ]);
-            if($is_insert){
-                $request->session()->flash('alert', array('message'=>'Banner Upload Successful', 'status'=>'success'));
-                    return redirect()->route('login');
-            }else{
-                $request->session()->flash('alert', array('message'=>'Banner Upload Successful', 'status'=>'success'));
-
+            if ($is_insert) {
+                $request->session()->flash('alert', array('message' => 'Banner Upload Successful', 'status' => 'success'));
+                return redirect()->route('login');
+            } else {
+                $request->session()->flash('alert', array('message' => 'Banner Upload Successful', 'status' => 'success'));
             }
         }
 
@@ -44,6 +43,38 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        if (Auth::check()) {
+            return redirect('/');
+        }
+
+        if( $request->has('login') ){
+
+         
+            $validatedData = $request->validate([
+                'email' => 'required|email|exists:users',
+                'password' => 'required|string|min:6',
+            ]);
+            $remember = ($request->has('remember')) ? true : false;
+            
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials,$remember)) {
+
+                $userId = Auth::id();
+                $request->session()->put('userid', $userId);
+                $request->session()->flash('alert', array('message'=>'Login successful', 'status'=>'success'));
+
+                if(!empty($request->session()->get('userid'))){
+                    return redirect('dashboard');
+                }
+
+                
+            }else{
+                
+                $request->session()->flash('alert', array('message'=>'Invalid Login Credentials', 'status'=>'error'));
+            }
+        }
+
         return view("auth.login");
     }
 
@@ -55,6 +86,8 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->flush();
         return redirect()->route('login');
+       
     }
 }
