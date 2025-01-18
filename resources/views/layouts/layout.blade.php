@@ -113,7 +113,7 @@
         <ul class="menu-inner py-1">
           <!-- Dashboards -->
           <li class="menu-item">
-            <a href="index.html" class="menu-link">
+            <a href="{{route('dashboard')}}" class="menu-link"> 
               <i class="menu-icon tf-icons bx bx-home-smile"></i>
               <div class="text-truncate" data-i18n="Tables">Dashboards</div>
             </a>
@@ -126,7 +126,7 @@
           </li>
 
           <li class="menu-item">
-            <a href="form-layouts-vertical.html" class="menu-link">
+            <a class="menu-link" href="{{URL('user_form')}}">
               <i class=""></i>
               <div class="text-truncate" data-i18n="Tables">Forms</div>
             </a>
