@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificate</title>
-    <link rel="stylesheet" href="{{ public_path('assets\assets\css\style.css') }}">
+    <link rel="stylesheet" href="{{ public_path('assets/assets/css/style.css') }}" type="text/css">
 </head>
 
 
@@ -27,7 +27,7 @@ if($data->sub_cast ==1){
 }else{
     $subcast ="(not mentioned)";
 }
-    
+
 
 @endphp
 <body>
@@ -44,7 +44,7 @@ if($data->sub_cast ==1){
                         href="mailto:rampurhat.mun@gmail.com">rampurhat.mun@gmail.com</a></div>
             </div>
 
-            <img src="https://images-platform.99static.com//1C4230KNaamrE8rhm9ubDwZwpnk=/290x290:1704x1704/fit-in/590x590/99designs-contests-attachments/113/113585/attachment_113585617"
+            <img src="{{public_path('images.png')}}"
                 style="height: 80px; width: 80px; border-radius: 100%; background-color: black; margin-left: -70px;"
                 alt="">
 
