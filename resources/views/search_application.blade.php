@@ -61,7 +61,7 @@
               <th>Ration card No</th>
               <th>Family Type</th>
             </tr>
-            </tr>
+           
           </thead>
           <tbody class="table-border-bottom-0">
             <!-- <tr>
@@ -112,7 +112,10 @@
               <td>{{$family_type == "A" ? "APL" : "BPL"}}</td>
 
               <td>
-                <i class="bx bx-dots-vertical-rounded"></i><a href="{{url('print_certificate')}}/{{$id}}">Print</a>
+                <i class="bx bx-dots-vertical-rounded"></i><a target="_blank" href="{{url('print_certificate')}}/{{$id}}">View</a>
+              </td>
+              <td>
+                <i class="bx bx-dots-vertical-rounded"></i><a href="{{url('download_certificate')}}/{{$id}}">Download</a>
               </td>
               <!-- <td>
                 <div class="dropdown">

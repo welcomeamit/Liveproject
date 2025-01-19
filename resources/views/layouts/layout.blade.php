@@ -129,6 +129,13 @@
             </a>
           </li>
 
+          <li class="menu-item">
+            <a href="{{URL('logout')}}" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-home-smile"></i>
+              <div class="text-truncate" data-i18n="Tables">Logout</div>
+            </a>
+          </li>
+
           <!-- <li class="menu-item">
             <a class="menu-link" href="{{URL('user_form')}}">
               <i class=""></i>

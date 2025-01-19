@@ -17,3 +17,4 @@ Route::match(['get','post'],'logout',[AuthController::class,'logout'])->name('lo
 Route::match(['get','post'],'application_form',[ApplicationFormController::class,'application_form']);
 Route::match(['get','post'],'search_application',[ApplicationFormController::class,'search_application']);
 Route::match(['get','post'],'print_certificate/{id}',[ApplicationFormController::class,'print_certificate']);
+Route::match(['get','post'],'download_certificate/{id}',[ApplicationFormController::class,'download_certificate']);
