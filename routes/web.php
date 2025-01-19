@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\ApplicationFormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserForm;
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::match(['get','post'],'register',[AuthController::class,'register'])->name('register'); 
@@ -13,4 +14,6 @@ Route::match(['get','post'],'login',[AuthController::class,'login'])->name('logi
 Route::match(['get','post'],'dashboard',[AuthController::class,'dashboard'])->name('dashboard'); 
 Route::match(['get','post'],'logout',[AuthController::class,'logout'])->name('logout'); 
 
-Route::match(['get','post'],'user_form',[UserForm::class,'user_form']);
+Route::match(['get','post'],'application_form',[ApplicationFormController::class,'application_form']);
+Route::match(['get','post'],'search_application',[ApplicationFormController::class,'search_application']);
+Route::match(['get','post'],'print_certificate/{id}',[ApplicationFormController::class,'print_certificate']);

@@ -43,9 +43,9 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (Auth::check()) {
-            return redirect('/');
-        }
+        // if (Auth::check()) {
+        //     return redirect('/dashboard');
+        // }
 
         if( $request->has('login') ){
 
@@ -71,7 +71,7 @@ class AuthController extends Controller
                 
             }else{
                 
-                $request->session()->flash('alert', array('message'=>'Invalid Login Credentials', 'status'=>'error'));
+                $request->session()->flash('alert', array('message'=>'Invalid Login Credentials', 'status'=>'error' ,'title'=>'Error'));
             }
         }
 
@@ -80,6 +80,9 @@ class AuthController extends Controller
 
     public function dashboard(Request $request)
     {
+        // return redirect('login');
+        // $request->session()->flash('alert', array('message'=>'Invalid Login Credentials', 'status'=>'error' ,'title'=>'Error'));
+
         return view("auth.dashboard");
     }
 
