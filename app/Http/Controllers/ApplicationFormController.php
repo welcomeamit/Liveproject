@@ -61,21 +61,20 @@ class ApplicationFormController extends Controller
         $data = Trans_application_form::select('*')->where('id', $request->id)->first();
 
         return view("print_certificate", ["data" => $data]);
-
-
     }
 
     public function download_certificate(Request $request)
     {
         $data = Trans_application_form::select('*')->where('id', $request->id)->first();
 
-       // return view("print_certificate", ["data" => $data]);
+        // return view("print_certificate", ["data" => $data]);
 
         // Load the view and pass the data
         $pdf = PDF::loadView('print_certificate', ["data" => $data]);
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->stream('sample.pdf');
 
         // Download the PDF
         return $pdf->download('certificate.pdf');
-
     }
 }
