@@ -7,7 +7,7 @@ use App\Models\Trans_application_form;
 
 use Illuminate\Support\Facades\Session;
 use PDF;
-
+use NumberToWords\NumberToWords;
 
 class ApplicationFormController extends Controller
 {
@@ -70,6 +70,8 @@ class ApplicationFormController extends Controller
         // return view("print_certificate", ["data" => $data]);
 
         // Load the view and pass the data
+
+
         $pdf = PDF::loadView('print_certificate', ["data" => $data]);
         $pdf->setPaper('A4', 'portrait');
         return $pdf->stream('sample.pdf');
@@ -77,4 +79,6 @@ class ApplicationFormController extends Controller
         // Download the PDF
         return $pdf->download('certificate.pdf');
     }
+
+
 }
