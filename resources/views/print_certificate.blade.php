@@ -90,7 +90,7 @@
 
         .footer-note {
             text-align: center;
-            margin-top: 10mm;
+            margin-top: 70mm;
             font-size: 10px;
         }
 
@@ -116,29 +116,31 @@
             background-color: #f0f0f0;
             text-align: center;
         }
+
+        
     </style>
 
 
 </head>
 @php
 if($data->cast ==1){
-    $cast ="General Caste";
+$cast ="General Caste";
 }elseif($data->cast ==2){
-    $cast ="Schedule caste";
+$cast ="Schedule caste";
 }elseif($data->cast ==3){
-    $cast ="Schedule tribe";
+$cast ="Schedule tribe";
 }elseif($data->cast ==4){
-    $cast ="OBC";
+$cast ="OBC";
 }
 
 if($data->sub_cast ==1){
-    $subcast ="OBC 1";
+$subcast ="OBC 1";
 }elseif($data->sub_cast ==2){
-    $subcast ="OBC 2";
+$subcast ="OBC 2";
 }else{
-    $subcast ="(not mentioned)";
+$subcast ="(not mentioned)";
 }
-    
+
 
 
 @endphp
@@ -197,13 +199,13 @@ if($data->sub_cast ==1){
         <!-- Content Section -->
         <div class="content">
             <h2 style="text-align: center; font-style: italic; color: blue;">TO WHOM IT MAY CONCERN</h2>
-            <p>This is to certify that <strong>{{$data->applicant_name}}</strong>, Son of {{$data->father_name}}, is known to me. He is a permanent resident of <strong>{{$data->address}}, P.O. & P.S.- {{$data->po_ps}}, District-{{$data->district}} (W.B).</strong></p>
-            <p>His date of birth is <strong>{{$data->dob}}</strong> as per AADHAR Card issued by UIDAI.</p>
-            <p>The yearly income of his family is <strong>Rs {{$data->family_income}}</strong> (In words {{numberToWords($data->family_income)}} Rupees Only).</p>
-            <p>He belongs to <strong>{{$cast}}</strong> and his sub-caste is <em>{{$subcast}}</em>.</p>
-            <p>Also certified that he is entitled to get free medical treatment in Government Hospitals.</p>
-            <p>He comes from a <strong>{{$data->family_type =="B" ? "B.P.L" : "A.P.L"}}</strong> family and his ration card number is <em>(not mentioned)</em>.</p>
-            <p>He is an unemployed person. So far it is known, he bears a good moral character.</p>
+            <p>This is to certify that <strong>{{$data->applicant_name}}</strong>, Son of {{$data->father_name}}, is known to me. He is a permanent resident of <strong>{{$data->address}}, P.O. & P.S.- {{$data->po_ps}}, District-{{$data->district}} (W.B).</strong>
+                His date of birth is <strong>{{$data->dob}}</strong> as per AADHAR Card issued by UIDAI.
+                The yearly income of his family is <strong>Rs {{$data->family_income}}</strong> (In words {{numberToWords($data->family_income)}} Rupees Only).
+                He belongs to <strong>{{$cast}}</strong> and his sub-caste is <em>{{$subcast}}</em>.
+                Also certified that he is entitled to get free medical treatment in Government Hospitals.
+                He comes from a <strong>{{$data->family_type =="B" ? "B.P.L" : "A.P.L"}}</strong> family and his ration card number is <em>(not mentioned)</em>.
+                He is an unemployed person. So far it is known, he bears a good moral character.</p>
         </div>
 
         <!-- Signature Section -->

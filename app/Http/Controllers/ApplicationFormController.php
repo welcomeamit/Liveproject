@@ -74,7 +74,7 @@ class ApplicationFormController extends Controller
 
         $pdf = PDF::loadView('print_certificate', ["data" => $data]);
         $pdf->setPaper('A4', 'portrait');
-        return $pdf->stream('sample.pdf');
+        //return $pdf->stream('sample.pdf');
 
         // Download the PDF
         return $pdf->download('certificate.pdf');
