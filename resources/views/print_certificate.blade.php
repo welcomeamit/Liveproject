@@ -201,7 +201,7 @@ $subcast ="(not mentioned)";
             <h2 style="text-align: center; font-style: italic; color: blue;">TO WHOM IT MAY CONCERN</h2>
             <p>This is to certify that <strong>{{$data->applicant_name}}</strong>, Son of {{$data->father_name}}, is known to me. He is a permanent resident of <strong>{{$data->address}}, P.O. & P.S.- {{$data->po_ps}}, District-{{$data->district}} (W.B).</strong>
                 His date of birth is <strong>{{$data->dob}}</strong> as per AADHAR Card issued by UIDAI.
-                The yearly income of his family is <strong>Rs {{$data->family_income}}</strong> (In words {{numberToWords($data->family_income)}} Rupees Only).
+                The yearly income of his family is <strong>Rs {{$data->family_income}}</strong> (In words {{numberToWords($data->family_income)}} Only).
                 He belongs to <strong>{{$cast}}</strong> and his sub-caste is <em>{{$subcast}}</em>.
                 Also certified that he is entitled to get free medical treatment in Government Hospitals.
                 He comes from a <strong>{{$data->family_type =="B" ? "B.P.L" : "A.P.L"}}</strong> family and his ration card number is <em>(not mentioned)</em>.
